@@ -445,3 +445,53 @@ body {
 .slider__button:hover {
     background-color: var(--color-background-container);
 }
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.about__description {
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+   /* max-width: 130rem;*/
+}
+
+.about__accent {
+    font-style: italic;
+    color: var(--color-text-accent);
+}
+
+.about__images {
+    display: flex;
+    gap: 4rem;
+}
+
+.about__images-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    flex: 1;
+}
+
+.about__img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.about__img:hover {
+    transform: scale(0.9);
+}
+
+.about__img_large {
+    aspect-ratio: 660 / 590;
+}
+
+.about__img_small {
+    aspect-ratio: 660 / 430;
+}
