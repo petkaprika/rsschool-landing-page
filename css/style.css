@@ -173,7 +173,7 @@ body {
 .footer__accent {
     font-family: 'Inter Variable Italic', sans-serif;
     font-style: italic;
-    font-variation-settings: "ital" 1;
+    font-variation-settings: "ital"1;
     color: var(--color-text-accent);
 }
 
@@ -253,4 +253,83 @@ body {
 
 .footer__social-button:hover img {
     filter: brightness(0) saturate(100%) invert(37%) sepia(8%) saturate(560%) hue-rotate(356deg) brightness(91%) contrast(88%);
+}
+
+.main {
+    background-color: var(--color-background-page);
+    padding-bottom: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.hero {
+    background-image: url('../assets/images/img-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4rem;
+    padding: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.hero__title {
+    font-size: 7.2rem;
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--color-text-inverse);
+    max-width: 53rem;
+}
+
+.hero__accent {
+    color: var(--color-text-accent);
+    font-style: italic;
+}
+
+.hero__description {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text-inverse);
+    max-width: 53rem;
+}
+
+.hero__button {
+    width: 20rem;
+
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    background-color: var(--color-text-inverse);
+    padding: 2rem 0;
+    border: none;
+    border-radius: 10rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.hero__button::after {
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    background-image: url('../assets/icons/coffee-cup.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    display: none;
+}
+
+.hero__button:hover::after {
+    display: block;
 }
