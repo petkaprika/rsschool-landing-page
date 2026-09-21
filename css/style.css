@@ -45,7 +45,7 @@ body {
 }
 
 .wrapper {
-    max-width: 1440px;
+    max-width: 144rem;
     width: 100%;
     margin: 0 auto;
     padding: 0 4rem;
@@ -105,7 +105,7 @@ body {
 }
 
 .theme-switch {
-    border: 1px solid var(--color-border-primary);
+    border: 0.1rem solid var(--color-border-primary);
     border-radius: 10rem;
     background-color: var(--color-background-page);
     display: flex;
@@ -457,7 +457,7 @@ body {
     font-weight: 600;
     line-height: 1.25;
     color: var(--color-text-primary);
-   /* max-width: 130rem;*/
+    /* max-width: 130rem;*/
 }
 
 .about__accent {
@@ -494,4 +494,95 @@ body {
 
 .about__img_small {
     aspect-ratio: 660 / 430;
+}
+
+.mobile-app {
+    display: flex;
+    gap: 10rem;
+}
+
+.mobile-app__title {
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+}
+
+.mobile-app__accent {
+    font-style: italic;
+    color: var(--color-text-accent);
+}
+
+.mobile-app__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    justify-content: center;
+}
+
+.mobile-app__description {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+}
+
+.mobile-app__button {
+    text-decoration: none;
+
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+
+    padding-left: 2rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    border: 0.1rem solid var(--color-background-container);
+    border-radius: 10rem;
+
+    width: 20rem;
+    color: var(--color-text-primary);
+}
+
+.mobile-app__buttons {
+    display: flex;
+    gap: 2rem;
+}
+
+.mobile-app__button-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.mobile-app__button-label {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mobile-app__button:hover {
+    background-color: var(--color-background-container);
+    color: var(--color-text-inverse);
+    border-color: var(--color-background-container);
+}
+
+.mobile-app__button img {
+    transition: filter 0.3s;
+}
+
+.mobile-app__button:hover img {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(9%) saturate(300%) hue-rotate(350deg) brightness(91%) contrast(90%);
+}
+
+.mobile-app__button-name,
+.mobile-app__button-label {
+    color: inherit;
 }
