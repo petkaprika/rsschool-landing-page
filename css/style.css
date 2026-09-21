@@ -593,3 +593,113 @@ body {
 .slide_active {
     display: block;
 }
+
+.menu {
+    background-color: var(--color-background-page);
+    padding-bottom: 10rem;
+}
+
+.menu__title {
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+
+    max-width: 80rem;
+
+    text-align: center;
+
+}
+
+.menu__accent {
+    color: var(--color-text-accent);
+    font-style: italic;
+}
+
+.menu__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.menu__tabs {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.menu__tab {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    border-radius: 10rem;
+    padding: 0.8rem 1.6rem 0.8rem 0.8rem;
+    border: 0.1rem solid var(--color-border-primary);
+    color: var(--color-text-primary);
+    background-color: var(--color-background-page);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu__tab_active {
+    background-color: var(--color-background-container);
+    color: var(--color-text-inverse);
+}
+
+.menu__tab:hover {
+    background-color: var(--color-background-container);
+    color: var(--color-text-inverse);
+}
+
+.card__title {
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+}
+
+.card__description {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+}
+
+.card__price {
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid var(--color-border-primary);
+    border-radius: 4rem;
+    width: calc((100% - 12rem) / 4);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(0.9);
+}
+
+.card__image {
+    border-radius: 4rem;
+}
+
+.card__content {
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.menu__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
