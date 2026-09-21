@@ -333,3 +333,115 @@ body {
 .hero__button:hover::after {
     display: block;
 }
+
+.main__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.favorite-coffee {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.favorite-coffee__title {
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+    text-align: center;
+}
+
+.favorite-coffee__accent {
+    font-style: italic;
+    color: var(--color-text-accent);
+}
+
+.slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider__button {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 0.1rem solid var(--color-background-container);
+    background-color: var(--color-background-page);
+
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slide__caption {
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+}
+
+.slide__text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+
+    width: 46rem;
+    text-align: center;
+}
+
+.slide__price {
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+}
+
+.slide__img {
+    margin-bottom: 2rem;
+}
+
+.slide__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 4rem;
+}
+
+.slide__control {
+    width: 4rem;
+    height: 0.4rem;
+    background-color: var(--color-border-primary);
+    border-radius: 0.2rem;
+}
+
+.slide__control_active {
+    background-color: var(--color-background-container);
+}
+
+.slide__controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.slider__img {
+    transition: filter 0.3s;
+}
+
+.slider__button:hover .slider__img {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(9%) saturate(300%) hue-rotate(350deg) brightness(91%) contrast(90%);
+}
+
+.slider__button:hover {
+    background-color: var(--color-background-container);
+}
