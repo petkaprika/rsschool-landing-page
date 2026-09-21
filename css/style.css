@@ -457,7 +457,6 @@ body {
     font-weight: 600;
     line-height: 1.25;
     color: var(--color-text-primary);
-    /* max-width: 130rem;*/
 }
 
 .about__accent {
@@ -585,4 +584,12 @@ body {
 .mobile-app__button-name,
 .mobile-app__button-label {
     color: inherit;
+}
+
+.slide {
+    display: none;
+}
+
+.slide_active {
+    display: block;
 }
