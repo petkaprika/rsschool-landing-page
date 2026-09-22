@@ -372,6 +372,8 @@ body {
     border: 0.1rem solid var(--color-background-container);
     background-color: var(--color-background-page);
 
+    flex-shrink: 0;
+
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -389,7 +391,7 @@ body {
     line-height: 1.5;
     color: var(--color-text-primary);
 
-    width: 46rem;
+    max-width: 46rem;
     text-align: center;
 }
 
@@ -403,6 +405,7 @@ body {
 .slider__content {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .slide__img {
@@ -598,7 +601,8 @@ body {
 }
 
 .slide_active {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .menu {
@@ -819,5 +823,58 @@ body {
     .menu__refresh {
         display: block;
     }
+}
+
+@media (max-width: 380px) {
+    .wrapper {
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+    }
+
+    .hero__title {
+        font-size: 4.2rem;
+        line-height: 1.15;
+    }
+
+    .hero {
+        padding: 6rem 1.6rem;
+    }
+
+    .favorite-coffee__title {
+        font-size: 3.2rem;
+    }
+
+    .slider__button {
+        display: none;
+    }
+
+    .about__description {
+        font-size: 3.2rem;
+    }
+
+    .about__img_large {
+        aspect-ratio: auto;
+        height: 59rem;
+        object-fit: cover;
+    }
+
+
+    .mobile-app__title {
+        font-size: 3.2rem;
+    }
+
+    .mobile-app__buttons {
+        flex-direction: column;
+    }
+
+    .footer__title {
+        font-size: 3.2rem;
+    }
+
+    .footer__inner {
+        padding: 6rem 1.6rem;
+        gap: 4rem;
+    }
+
 
 }
