@@ -586,6 +586,13 @@ body {
     color: inherit;
 }
 
+.mobile-app__img {
+    max-width: 100%;
+    height: auto;
+    object-position: center;
+    display: block;
+}
+
 .slide {
     display: none;
 }
@@ -702,4 +709,56 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 4rem;
+}
+
+.hamburger {
+    display: none;
+    position: relative;
+    width: 4.4rem;
+    height: 4.4rem;
+    border: 0.1rem solid var(--color-background-container);
+    background-color: var(--color-background-page);
+    border-radius: 50%;
+
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        background-color: var(--color-background-container);
+        width: 1.8rem;
+        height: 0.2rem;
+        top: 2.6rem;
+        left: 1.3rem;
+    }
+}
+
+.hamburger__line {
+    display: inline-block;
+    position: absolute;
+    background-color: var(--color-background-container);
+    width: 1.8rem;
+    height: 0.3rem;
+    top: 1.6rem;
+    left: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .header__navigation {
+        display: none;
+    }
+
+    .header__menu {
+        display: none;
+    }
+
+    .mobile-app__img {
+        max-width: 100%;
+    }
 }
