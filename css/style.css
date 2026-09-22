@@ -823,6 +823,10 @@ body {
     .menu__refresh {
         display: block;
     }
+
+    .card_hidden {
+        display: none;
+    }
 }
 
 @media (max-width: 380px) {
@@ -874,6 +878,26 @@ body {
     .footer__inner {
         padding: 6rem 1.6rem;
         gap: 4rem;
+    }
+
+    .header__actions {
+        gap: 1.2rem;
+    }
+
+    .menu__title {
+        font-size: 3.2rem;
+    }
+
+    .menu__tabs {
+        width: 100%;
+    }
+
+    .menu__tab {
+        flex: 1;
+    }
+
+    .card {
+        width: 100%;
     }
 
 
