@@ -745,6 +745,12 @@ body {
     left: 1.3rem;
 }
 
+@media (max-width: 900px) {
+    .navigation {
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;
