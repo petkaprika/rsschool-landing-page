@@ -829,6 +829,52 @@ body {
     }
 }
 
+@media (max-width: 505px) {
+    .wrapper {
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+    }
+
+    .hero__title {
+        font-size: 4.2rem;
+        line-height: 1.15;
+    }
+
+    .hero {
+        padding: 6rem 1.6rem;
+    }
+
+    .favorite-coffee__title {
+        font-size: 3.2rem;
+    }
+
+    .slider__button {
+        display: none;
+    }
+
+    .about__description {
+        font-size: 3.2rem;
+    }
+
+    .mobile-app__title {
+        font-size: 3.2rem;
+    }
+
+    .mobile-app__buttons {
+        flex-direction: column;
+    }
+
+    .footer__title {
+        font-size: 3.2rem;
+    }
+
+    .footer__inner {
+        padding: 6rem 1.6rem;
+        gap: 4rem;
+    }
+
+}
+
 @media (max-width: 380px) {
     .wrapper {
         padding-left: 1.6rem;
