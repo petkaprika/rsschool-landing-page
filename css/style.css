@@ -745,6 +745,13 @@ body {
     left: 1.3rem;
 }
 
+@media (max-width: 1000px) {
+    .footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 @media (max-width: 900px) {
     .navigation {
         gap: 1.5rem;
@@ -767,4 +774,27 @@ body {
     .mobile-app__img {
         max-width: 100%;
     }
+
+    .hero {
+        padding-left: 6rem;
+    }
+
+    .about__images {
+        flex-direction: column;
+    }
+
+    .about__img_small {
+        display: none;
+    }
+
+    .mobile-app {
+        flex-direction: column;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
 }
