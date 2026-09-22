@@ -745,10 +745,30 @@ body {
     left: 1.3rem;
 }
 
+.menu__refresh {
+    width: 6rem;
+    height: 6rem;
+    border: 0.1rem solid var(--color-background-container);
+    border-radius: 50%;
+    background-color: var(--color-background-page);
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 1240px) {
+    .card {
+        width: calc((100% - 8rem) / 3);
+    }
+}
+
 @media (max-width: 1000px) {
     .footer__inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .card {
+        width: calc((100% - 4rem) / 2);
     }
 }
 
@@ -796,5 +816,8 @@ body {
         align-items: flex-start;
     }
 
+    .menu__refresh {
+        display: block;
+    }
 
 }
