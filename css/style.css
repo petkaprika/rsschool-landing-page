@@ -787,6 +787,23 @@ body {
     background-color: var(--color-background-page);
     cursor: pointer;
     display: none;
+    transition: background-color 0.3s;
+}
+
+.menu__refresh_hidden {
+    display: hidden;
+}
+
+.menu__refresh-img {
+    transition: filter 0.3s;
+}
+
+.menu__refresh:hover .menu__refresh-img {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(9%) saturate(300%) hue-rotate(350deg) brightness(91%) contrast(90%);
+}
+
+.menu__refresh:hover {
+    background-color: var(--color-background-container);
 }
 
 @media (max-width: 1240px) {
@@ -813,6 +830,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .menu__refresh.menu__refresh_hidden {
+        display: none;
+    }
+
     .hamburger {
         display: block;
     }

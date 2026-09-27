@@ -1,9 +1,39 @@
 import { products } from './products.js';
 
 const menu = document.querySelector('.menu__grid');
+const refreshButton = document.querySelector('.menu__refresh');
+
+let category;
+let width = window.innerWidth;
+let productsQuantity;
+let productPointer = 0;
+const productsPerPage = 4;
 
 initMenu();
 addCategoryClickSwitching();
+refreshButton.addEventListener('click', () => {
+    const filteredProducts = filterProducts(category, products);
+    productPointer += productsPerPage;
+    console.log(productPointer + ' ' + productsQuantity);
+    const endIndex = productPointer > productsQuantity ? filteredProducts.length : productPointer;
+    console.log(endIndex);
+    renderProducts(filteredProducts, 0, endIndex);
+    showRefreshButton();
+});
+
+window.addEventListener('resize', () => {
+    const currentWidth = window.innerWidth;
+    if (width > 768 && currentWidth <= 768) {
+        /*   productPointer = productsPerPage;*/
+        const filteredProducts = filterProducts(category, products);
+        updateProducts(filteredProducts)
+    } else if (width <= 768 && currentWidth > 768) {
+        const filteredProducts = filterProducts(category, products);
+        updateProducts(filteredProducts);
+    }
+    width = currentWidth;
+    console.log(currentWidth);
+});
 
 function addCategoryClickSwitching() {
     document.querySelector('.menu__tabs').addEventListener('click', (e) => {
@@ -13,13 +43,13 @@ function addCategoryClickSwitching() {
             removeSelectedTabs();
             selectClickedTab(clickedTab);
 
-            const category = clickedTab.innerText;
+            category = clickedTab.innerText;
 
             const filteredProducts = filterProducts(category, products);
-            renderProducts(filteredProducts);
+            productsQuantity = filteredProducts.length;
 
+            updateProducts(filteredProducts);
         }
-
     });
 }
 
@@ -41,15 +71,14 @@ function filterProducts(category, products) {
     return products.filter(product => product.category.toLowerCase() === category.toLowerCase());
 }
 
-function renderProducts(filteredProducts) {
+function renderProducts(filteredProducts, startIndex = 0, endIndex) {
     menu.replaceChildren();
 
     const fragment = document.createDocumentFragment();
 
-    filteredProducts.forEach(product => fragment.append(createProductCard(product)));
+    filteredProducts.slice(startIndex, endIndex).forEach(product => fragment.append(createProductCard(product)));
 
     menu.append(fragment);
-
 }
 
 function createProductCard(product) {
@@ -88,10 +117,30 @@ function initMenu() {
 
     selectClickedTab(firstTab);
 
-    const category = firstTab.innerText;
+    category = firstTab.innerText;
     const filteredProducts = filterProducts(category, products);
+    productsQuantity = filteredProducts.length;
 
-    renderProducts(filteredProducts);
+    updateProducts(filteredProducts);
+}
+
+function updateProducts(filteredProducts) {
+    productPointer = productsPerPage;
+    if (window.innerWidth <= 768) {
+        renderProducts(filteredProducts, 0, productsPerPage);
+    } else {
+        renderProducts(filteredProducts);
+    }
+
+    showRefreshButton();
+}
+
+function showRefreshButton() {
+    if (window.innerWidth <= 768 && productPointer < productsQuantity) {
+        refreshButton.classList.remove('menu__refresh_hidden');
+    } else {
+        refreshButton.classList.add('menu__refresh_hidden');
+    }
 }
 
 
