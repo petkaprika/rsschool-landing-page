@@ -486,9 +486,11 @@ body {
     transition: transform 0.3s ease;
 }
 
+/*
 .about__img:hover {
     transform: scale(0.9);
 }
+    */
 
 .about__img_large {
     aspect-ratio: 660 / 590;
@@ -723,9 +725,11 @@ body {
     transition: transform 0.3s ease;
 }
 
+/*
 .card:hover {
     transform: scale(0.9);
 }
+    */
 
 .card__image {
     border-radius: 4rem;
@@ -1002,5 +1006,15 @@ body {
 
     .menu__grid {
         padding: 0 1.9rem;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .about__img:hover {
+        transform: scale(0.9);
+    }
+
+    .card:hover {
+        transform: scale(0.9);
     }
 }
