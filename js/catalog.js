@@ -2,6 +2,12 @@ import { products } from './products.js';
 
 const menu = document.querySelector('.menu__grid');
 const refreshButton = document.querySelector('.menu__refresh');
+const modal = document.querySelector('.modal');
+const closeButton = document.querySelector('.modal__close-button');
+const image = document.querySelector('.modal__image');
+const title = document.querySelector('.modal__title');
+const descriptionText = document.querySelector('.modal__description-text');
+const price = document.querySelector('.modal__total-price');
 
 let category;
 let width = window.innerWidth;
@@ -11,12 +17,34 @@ const productsPerPage = 4;
 
 initMenu();
 addCategoryClickSwitching();
+
+closeButton.addEventListener('click', () => closeModal(modal));
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal(modal);
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Escape' && !modal.classList.contains('modal_hidden')) {
+        closeModal(modal);
+    }
+});
+
+menu.addEventListener('click', (e) => {
+    const card = e.target.closest('.card');
+    if (card) {
+        const productName = card.dataset.name;
+        const product = products.find(product => product.name === productName);
+        openModal(modal, product);
+    }
+});
+
 refreshButton.addEventListener('click', () => {
     const filteredProducts = filterProducts(category, products);
     productPointer += productsPerPage;
-    console.log(productPointer + ' ' + productsQuantity);
     const endIndex = productPointer > productsQuantity ? filteredProducts.length : productPointer;
-    console.log(endIndex);
     renderProducts(filteredProducts, 0, endIndex);
     showRefreshButton();
 });
@@ -32,7 +60,6 @@ window.addEventListener('resize', () => {
         updateProducts(filteredProducts);
     }
     width = currentWidth;
-    console.log(currentWidth);
 });
 
 function addCategoryClickSwitching() {
@@ -84,6 +111,7 @@ function renderProducts(filteredProducts, startIndex = 0, endIndex) {
 function createProductCard(product) {
     const article = document.createElement('article');
     article.classList.add('card');
+    article.dataset.name = product.name;
 
     const img = document.createElement('img');
     img.src = `assets/images/${product.image}`;
@@ -141,6 +169,21 @@ function showRefreshButton() {
     } else {
         refreshButton.classList.add('menu__refresh_hidden');
     }
+}
+
+function openModal(modal, product) {
+    modal.classList.remove('modal_hidden');
+    document.body.style.overflow = 'hidden';
+
+    image.src = `assets/images/${product.image}`;
+    title.textContent = product.name;
+    descriptionText.textContent = product.description;
+    price.textContent = `$${product.price}`;
+}
+
+function closeModal(modal) {
+    modal.classList.add('modal_hidden');
+    document.body.style.overflow = '';
 }
 
 

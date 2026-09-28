@@ -826,6 +826,10 @@ body {
     z-index: 100;
 }
 
+.modal_hidden {
+    display: none;
+}
+
 .modal__content {
     padding: 1.6rem;
     background-color: var(--color-text-inverse);
