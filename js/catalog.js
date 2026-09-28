@@ -8,15 +8,42 @@ const image = document.querySelector('.modal__image');
 const title = document.querySelector('.modal__title');
 const descriptionText = document.querySelector('.modal__description-text');
 const price = document.querySelector('.modal__total-price');
+const sizeTabs = document.querySelector('.size-tabs');
+const additives = document.querySelector('.additives');
 
 let category;
 let width = window.innerWidth;
 let productsQuantity;
 let productPointer = 0;
 const productsPerPage = 4;
+let currentProduct;
 
 initMenu();
 addCategoryClickSwitching();
+
+additives.addEventListener('click', (e) => {
+    const additiveButton = e.target.closest('.additives__tab');
+
+    if (additiveButton) {
+        additiveButton.classList.toggle('additives__tab_active');
+        additiveButton.querySelector('.additives__tab-item').classList.toggle('additives__tab-item_active');
+
+        const totalPrice = calculateTotalPrice();
+        price.textContent = `$${totalPrice.toFixed(2)}`;
+    }
+});
+
+sizeTabs.addEventListener('click', (e) => {
+    const sizeButton = e.target.closest('.size-tabs__tab');
+    if (sizeButton) {
+        removeSelectedSizes();
+        selectClickedSize(sizeButton);
+
+        const totalPrice = calculateTotalPrice();
+
+        price.textContent = `$${totalPrice.toFixed(2)}`;
+    }
+});
 
 closeButton.addEventListener('click', () => closeModal(modal));
 
@@ -172,19 +199,99 @@ function showRefreshButton() {
 }
 
 function openModal(modal, product) {
+    currentProduct = product;
+
     modal.classList.remove('modal_hidden');
     document.body.style.overflow = 'hidden';
 
     image.src = `assets/images/${product.image}`;
     title.textContent = product.name;
     descriptionText.textContent = product.description;
-    price.textContent = `$${product.price}`;
+
+    sizeTabs.replaceChildren();
+    const sizeTabsFragment = document.createDocumentFragment();
+
+    for (const size of Object.entries(product.sizes)) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.classList.add('size-tabs__tab');
+        button.dataset.size = size[0].toLowerCase();
+
+        const item = document.createElement('span');
+        item.classList.add('size-tabs__item');
+        item.textContent = size[0].toUpperCase();
+        if (size[0].toUpperCase() === 'S') {
+            button.classList.add('size-tabs__tab_active');
+            item.classList.add('size-tabs__item_active');
+        }
+        button.append(item);
+        button.append(size[1].size);
+        sizeTabsFragment.append(button);
+    }
+    sizeTabs.append(sizeTabsFragment);
+
+    additives.replaceChildren();
+    const additivesFragment = document.createDocumentFragment();
+
+    product.additives.forEach((additive, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.classList.add('additives__tab');
+
+        const item = document.createElement('span');
+        item.classList.add('additives__tab-item');
+        item.textContent = `${index + 1}`;
+        button.append(item);
+        button.append(additive.name);
+        button.dataset.additiveIndex = index;
+        additivesFragment.append(button);
+    });
+
+    additives.append(additivesFragment);
+
+    price.textContent = `$${calculateTotalPrice().toFixed(2)}`;
 }
 
 function closeModal(modal) {
     modal.classList.add('modal_hidden');
     document.body.style.overflow = '';
 }
+
+function removeSelectedSizes() {
+    const sizeButtons = sizeTabs.querySelectorAll('.size-tabs__tab');
+    const sizes = sizeTabs.querySelectorAll('.size-tabs__item');
+    sizeButtons.forEach(button => button.classList.remove('size-tabs__tab_active'));
+    sizes.forEach(size => size.classList.remove('size-tabs__item_active'));
+}
+
+function selectClickedSize(sizeButton) {
+    sizeButton.classList.add('size-tabs__tab_active');
+    sizeButton.querySelector('.size-tabs__item').classList.add('size-tabs__item_active');
+}
+
+function calculateTotalPrice() {
+    const sizeButton = sizeTabs.querySelector('.size-tabs__tab_active');
+    let size;
+    let sizePrice;
+    let totalPrice = parseFloat(currentProduct.price);
+    if (sizeButton) {
+        size = sizeButton.dataset.size;
+        sizePrice = parseFloat(currentProduct.sizes[size]['add-price']);
+        totalPrice += sizePrice;
+    }
+
+    const activeAdditives = [...additives.querySelectorAll('.additives__tab.additives__tab_active')];
+    const addPrice = activeAdditives.reduce((sum, additive) => {
+        const index = additive.dataset.additiveIndex;
+        const addPrice = parseFloat(currentProduct.additives[index]['add-price']);
+        return sum + addPrice;
+    }, 0);
+
+    totalPrice += addPrice;
+
+    return totalPrice;
+}
+
 
 
 
