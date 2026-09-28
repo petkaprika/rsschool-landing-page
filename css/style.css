@@ -771,10 +771,16 @@ body {
         position: absolute;
         background-color: var(--color-background-container);
         width: 1.8rem;
-        height: 0.2rem;
+        height: 0.1rem;
         top: 2.6rem;
         left: 1.3rem;
+
+        color: var(--color-text-primary);
+
+        transition: transform 0.3s;
     }
+
+    transition: transform 0.3s;
 }
 
 .hamburger__line {
@@ -782,9 +788,12 @@ body {
     position: absolute;
     background-color: var(--color-background-container);
     width: 1.8rem;
-    height: 0.3rem;
+    height: 0.1rem;
     top: 1.6rem;
     left: 1.3rem;
+    color: var(--color-text-primary);
+
+    transition: transform 0.3s;
 }
 
 .menu__refresh {
@@ -1053,6 +1062,63 @@ body {
     color: var(--color-text-primary);
 }
 
+.burger-menu {
+    display: none;
+    background-color: var(--color-background-page);
+}
+
+.body_lock {
+    overflow-y: hidden;
+}
+
+.header_open .hamburger__line {
+    transform: rotate(45deg);
+    top: 2.1rem;
+}
+
+.header_open .hamburger::after {
+    transform: rotate(-45deg);
+    top: 2.1rem;
+}
+
+.burger-menu__link {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.burger-menu__item {
+    list-style: none;
+}
+
+.burger-menu__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    padding-top: 6rem;
+    align-items: center;
+}
+
+.burger-menu__menu {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+}
+
+.burger-menu__image {
+    width: 4rem;
+    height: 4rem;
+}
+
+
+
 
 @media (max-width: 1240px) {
     .card {
@@ -1125,6 +1191,27 @@ body {
 
     .card_hidden {
         display: none;
+    }
+
+    .burger-menu {
+        display: block;
+        position: fixed;
+        top: 8rem;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 8rem);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: right 0.3s, opacity 0.3s, visibility 0s 0.3s;
+    }
+
+    .header_open .burger-menu {
+        opacity: 1;
+        visibility: visible;
+        right: 0;
+        transition: right 0.3s, opacity 0.3s;
     }
 }
 
