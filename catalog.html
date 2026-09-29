@@ -45,6 +45,24 @@
                     <span class="hamburger__line"></span>
                 </button>
             </div>
+
+            <div class="burger-menu">
+                <ul class="burger-menu__list">
+                    <li class="burger-menu__item"><a href="index.html#favorite-coffee"
+                            class="burger-menu__link">Favorite
+                            coffee</a></li>
+                    <li class="burger-menu__item"><a href="index.html#about" class="burger-menu__link">About</a></li>
+                    <li class="burger-menu__item"><a href="index.html#mobile-app" class="burger-menu__link">Mobile
+                            app</a>
+                    </li>
+                    <li class="burger-menu__item"><a href="#contact-us" class="burger-menu__link">Contact us</a>
+                    </li>
+                    <li class="burger-menu__item"><a href="catalog.html"
+                            class="burger-menu__link burger-menu__menu">Menu<img src="assets/icons/coffee-cup.svg"
+                                alt="coffee-cup" class="burger-menu__image"></a></li>
+                </ul>
+            </div>
+
         </div>
     </header>
 
@@ -56,23 +74,29 @@
             </h1>
 
             <div class="menu__tabs">
-                <button class="menu__tab menu__tab_active" type="button">
-                    <span class="menu__tab-icon"></span>
+                <button class="menu__tab" type="button">
+                    <span class="menu__tab-icon">
+                        <img src="assets/images/coffee.png" alt="" class="menu__tab-img">
+                    </span>
                     Coffee
                 </button>
 
                 <button class="menu__tab" type="button">
                     <span class="menu__tab-icon">
+                        <img src="assets/images/tea.png" alt="" class="menu__tab-img">
                     </span>
                     Tea
                 </button>
 
                 <button class="menu__tab" type="button">
-                    <span class="menu__tab-icon"></span>
+                    <span class="menu__tab-icon">
+                        <img src="assets/images/dessert.png" alt="" class="menu__tab-img">
+                    </span>
                     Dessert
                 </button>
             </div>
             <div class="menu__grid">
+                <!--
                 <article class="card">
                     <img src="assets/images/coffee-1.jpg" alt="" class="card__image">
 
@@ -160,10 +184,11 @@
                         <p class="card__price">$7.00</p>
                     </div>
                 </article>
-
+                !-->
             </div>
+
             <button class="menu__refresh" type="button">
-                <img src="assets/icons/refresh.svg" alt="Load more">
+                <img src="assets/icons/refresh.svg" alt="Load more" class="menu__refresh-img">
             </button>
         </div>
     </main>
@@ -201,7 +226,105 @@
             </div>
         </div>
     </footer>
+    <div class="modal modal_hidden">
+        <div class="modal__content">
+            <div class="modal__img">
+                <img src="assets/images/coffee-1.jpg" alt="" class="modal__image">
+            </div>
+            <div class="modal__description">
 
+                <div class="modal__main-info">
+                    <p class="modal__title">
+                        Irish coffee
+                    </p>
+
+                    <p class="modal__description-text">
+                        Fragrant black coffee with Jameson Irish whiskey and whipped milk
+                    </p>
+                </div>
+
+                <div class="modal__parameter">
+                    <p class="modal__parameter-title">
+                        Size
+                    </p>
+                    <div class="size-tabs">
+                        <button class="size-tabs__tab" type="button">
+                            <span class="size-tabs__item">
+                                S
+                            </span>
+                            200 ml
+                        </button>
+
+                        <button class="size-tabs__tab" type="button">
+                            <span class="size-tabs__item">
+                                M
+                            </span>
+                            300 ml
+                        </button>
+
+                        <button class="size-tabs__tab" type="button">
+                            <span class="size-tabs__item">
+                                L
+                            </span>
+                            400 ml
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal__parameter">
+                    <p class="modal__parameter-title">
+                        Additives
+                    </p>
+                    <div class="additives">
+                        <button class="additives__tab" type="button">
+                            <span class="additives__tab-item">
+                                1
+                            </span>
+                            Sugar
+                        </button>
+
+                        <button class="additives__tab" type="button">
+                            <span class="additives__tab-item">
+                                2
+                            </span>
+                            Cinnamon
+                        </button>
+
+                        <button class="additives__tab" type="button">
+                            <span class="additives__tab-item">
+                                3
+                            </span>
+                            Syrup
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal__total">
+                    <span class="modal__total-label">
+                        Total:
+                    </span>
+                    <span class="modal__total-price">
+                        $7.00
+                    </span>
+                </div>
+
+                <div class="modal__alert">
+                    <img src="assets/icons/info-empty.png" alt="" class="modal__alert-img">
+                    <p class="modal__alert-text">
+                        The cost is not final. Download our mobile app to see the final price and place your
+                        order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
+                    </p>
+                </div>
+                <button class="modal__close-button" type="button">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="js/catalog.js"></script>
+    <script src="js/burger.js"></script>
 </body>
 
 </html>
