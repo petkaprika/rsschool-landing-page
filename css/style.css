@@ -601,12 +601,27 @@ body {
 }
 
 .slide {
-    display: none;
-}
-
-.slide_active {
     display: flex;
     flex-direction: column;
+    align-items: center;
+
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.slider__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.slider__viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider__slide-strip {
+    display: flex;
+    transition: transform 0.5s;
 }
 
 .menu {
